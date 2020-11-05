@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    </br> <input type="button" value="Test 1" onclick="test_1()">&nbsp In dãy Fibonacci
+    </br> <input type="button" value="Test 2" onclick="test_2()">&nbsp Tính giai thừa của một số nguyên dương
+    </br> <input type="button" value="Test 3" onclick="test_3()">&nbsp In tam giác vuông. Các góc vuông nằm ở các vị trí khác nhau
+    </br> <input type="button" value="Test 4" onclick="test_4()">&nbsp In hình chữ nhật
+    </br> <input type="button" value="Test 5" onclick="test_5()">&nbsp Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.
+    </br> <input type="button" value="Test 6" onclick="test_6()">&nbsp In hình trái tim
+    <script>
+        //Test 1 
+        function test_1() {
+            let f = 0;
+            let f0 = 0
+            let f1 = 0;
+            let fibonacci = "";
+            for (let i = 0; i < 50; i++) {
+                if (i == 0) {
+                    f = 1;
+                    f1 = 1;
+                    fibonacci += f + "";
+                } else {
+                    f = f0 + f1;
+                    f0 = f1;
+                    f1 = f;
+                    fibonacci += f + "";
+
+                }
+            }
+            document.write(fibonacci);
+        }
+
+
+        //Test 2
+        function test_2() {
+            let num = parseInt(prompt("Nhập số vào đây để tính ra giai thừa"));
+            let factory = 1;
+            for (let i = 1; i <= num; i++) {
+                factory *= i;
+            }
+            document.write(factory);
+        }
+
+        //Test 3
+        function test_3() {
+            for (let i = 1; i <= 5; i++) {
+                for (let j = 1; j <= i; j++) {
+                    document.write("*");
+                }
+                document.write("</br>");
+            }
+            document.write("</br>");
+
+            for (let i = 5; i >= 1; i--) {
+                for (let j = 1; j <= i; j++) {
+                    document.write("*");
+                }
+                document.write("</br>");
+            }
+            document.write("</br>");
+
+            for (let i = 1; i <= 5; i++) {
+                for (let j = 1; j <= i; j++) {}
+            }
+            document.write("</br>");
+            for (let i = 5; i >= 1; i--) {
+                for (let j = 1; j <= 5; j++) {
+                    if (j >= i) {
+                        document.write('*');
+                    } else {
+                        document.write('&nbsp', '&nbsp');
+                    }
+                }
+                document.write('<br>');
+            }
+            document.write('<br>');
+            for (let i = 1; i <= 5; i++) {
+                for (let j = 1; j <= 5; j++) {
+                    if (j >= i) {
+                        document.write('*');
+                    } else {
+                        document.write('&nbsp', '&nbsp');
+                    }
+                }
+                document.write('<br>');
+            }
+        }
+
+        //Test 4 
+        function test_4() {
+
+            for (let i = 0; i <= 20; i++) {
+                document.write('*');
+            }
+            document.write("</br>");
+            for (let j = 0; j <= 20; j++) {
+                (j === 0 || j === 20 ? document.write("*") : document.write("&nbsp"))
+            }
+            document.querySelector("body").style.fontFamily = "monospace";
+            document.write("</br>");
+            for (let j = 0; j <= 20; j++) {
+                (j === 0 || j === 20 ? document.write("*") : document.write("&nbsp"))
+            }
+            document.querySelector("body").style.fontFamily = "monospace";
+            document.write("</br>");
+            for (let j = 0; j <= 20; j++) {
+                (j === 0 || j === 20 ? document.write("*") : document.write("&nbsp"))
+            }
+            document.querySelector("body").style.fontFamily = "monospace";
+            document.write("</br>");
+            for (let j = 0; j <= 20; j++) {
+                (j === 0 || j === 20 ? document.write("*") : document.write("&nbsp"))
+            }
+            document.querySelector("body").style.fontFamily = "monospace";
+            document.write("</br>");
+            for (let j = 0; j <= 20; j++) {
+                (j === 0 || j === 20 ? document.write("*") : document.write("&nbsp"))
+            }
+            document.querySelector("body").style.fontFamily = "monospace";
+            document.write("</br>");
+            for (let i = 0; i <= 20; i++) {
+                document.write('*');
+            }
+        }
+
+        //Test 5
+        function test_5() {
+            let money = +prompt('Nhập số tiền vay :');
+            let month = +prompt('Nhập số tháng cho vay :');
+            let irate = +prompt('Nhập lãi suất hàng tháng :');
+            let interest = money;
+            let i = 1;
+            while (i <= month) {
+                interest *= (1 + irate / 100);
+                i++;
+            }
+            document.write("Số tiền lãi bạn phải trả là " + interest);
+        }
+
+        //Test 6
+        function test_6() {
+            let num = 10;
+            for (let i = num / 2; i <= num; i += 2) {
+                for (let j = 1; j < num - i; j += 2) {
+                    document.write("&nbsp&nbsp&nbsp");
+                }
+                for (j = 1; j <= i; j++) {
+                    document.write("*");
+                }
+                for (j = 1; j <= num - i; j++) {
+                    document.write("&nbsp");
+                }
+                for (j = 1; j <= i; j++) {
+                    document.write("*");
+                }
+                document.write("<br/>");
+            }
+
+            for (i = num; i >= 1; i--) {
+                for (j = i; j < num; j++) {
+                    document.write("&nbsp&nbsp");
+                }
+                for (j = 1; j <= (i * 2) - 1; j++) {
+                    document.write("*");
+                }
+                document.write("<br/>");
+            }
+        }
+    </script>
+</body>
+
+</html>
